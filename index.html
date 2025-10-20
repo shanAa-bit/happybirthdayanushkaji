@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Anushka ❤️</title>
+<style>
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    position: relative;
+  }
+  .intro-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 182, 193, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+  }
+  .intro-screen h1 {
+    font-size: 3em;
+    color: #ff0033;
+    text-shadow: 2px 2px 10px #fff;
+  }
+  .enter-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    border: none;
+    background: #ff3366;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .enter-btn:hover {
+    background: #ff6699;
+    transform: scale(1.05);
+  }
+  .content {
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .heart {
+    position: relative;
+    margin: 100px auto 20px auto;
+    width: 150px;
+    height: 135px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: rotateHeart 8s infinite linear;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 135px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -75px;
+    left: 0;
+  }
+  .heart::after {
+    left: 75px;
+    top: 0;
+  }
+  @keyframes rotateHeart {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+  }
+  .name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 15px #ff99aa;
+  }
+  .letter {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    text-align: left;
+    font-size: 1.05em;
+  }
+  .songs {
+    margin: 20px auto 60px auto;
+    text-align: center;
+  }
+  audio {
+    margin: 10px;
+  }
+  /* floating hearts */
+  .floating-heart {
+    position: absolute;
+    color: rgba(255,255,255,0.7);
+    font-size: 20px;
+    animation: floatUp 10s linear infinite;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.8); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+  }
+  /* soft glow wave */
+  .glow-wave {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%; height: 150px;
+    background: radial-gradient(circle at center, rgba(255,192,203,0.4), transparent);
+    animation: waveMove 6s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+  @keyframes waveMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(20px); }
+  }
+</style>
+</head>
+<body>
+  <div class="intro-screen" id="intro">
+    <h1>🎂 Happy Birthday My Baby My Bebu ❤️</h1>
+    <button class="enter-btn" onclick="enterSite()">Enter</button>
+  </div>
+
+  <div class="content" id="mainContent" style="display:none;">
+    <canvas id="fireworks"></canvas>
+    <div class="heart" onclick="confettiBurst()">
+      <div class="name">ANUSHKA</div>
+    </div>
+
+    <div class="letter">
+      <p>Happy Birthday to My Loveliest Darling My Life,</p>
+      <p>Today We are on the most special day — a day that contains my Heart and was the Day My Life was born. Many Many Many Many Congratulations of the Day My Baby. You were never alone, You are never alone, I am Always with You and the cute chaotic family is there. You are always the Most Loved and I LOVE YOU THE MOST ❤️❤️ Days will come and go, everything here will fade one day but the Love and connection always stay in Our Hearts with Our Soul.</p>
+      <p>Be Happy, Smile the broadest and Enjoy This day. Many more years are there to come but this marks our start. This day belongs to You and Only You, You are the Ruler of this day, the real owner of this Day. The day You were born, the day Beauty got redefined and the Day A Heavenly Soul took birth.</p>
+      <p><b>HAPPY BIRTHDAY MY BABYYYY!!!!!! WE'LL ALWAYS BE THIS CRAZY AND HAPPY!!!!</b></p>
+      <p>For all the past incidents I am Really sorry, I am working on it all and I'll be a man You can be really proud of.</p>
+      <p>Forever, <br><b>ANUSHKA's SHAN</b></p>
+    </div>
+
+    <div class="songs">
+      <h3>🎶 Choose a Song:</h3>
+      <audio controls>
+        <source src="song1.mp3" type="audio/mpeg">
+      </audio>
+      <audio controls>
+        <source src="song2.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    <div class="glow-wave"></div>
+  </div>
+
+<script>
+  function enterSite(){
+    document.getElementById('intro').style.display='none';
+    document.getElementById('mainContent').style.display='block';
+    startFireworks();
+    createFloatingHearts();
+  }
+
+  // Floating hearts generator
+  function createFloatingHearts(){
+    const emojis = ['💖','💗','💞','💕','💓'];
+    for(let i=0;i<20;i++){
+      let heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+      heart.style.left = Math.random()*100+'vw';
+      heart.style.animationDuration = (6+Math.random()*5)+'s';
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),11000);
+    }
+    setTimeout(createFloatingHearts,1500);
+  }
+
+  // Confetti burst placeholder
+  function confettiBurst(){
+    alert('🎉 Happy Birthday ANUSHKA! 🎉');
+  }
+
+  // Fireworks animation
+  function startFireworks(){
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+    let particles = [];
+    function random(min, max){return Math.random()*(max-min)+min;}
+
+    function createFirework(){
+      const x = random(0,W);
+      const y = random(H/2,H);
+      const count = 30;
+      for(let i=0;i<count;i++){
+        particles.push({x:x,y:y,vx:random(-3,3),vy:random(-3,3),life:random(50,100),color:`hsl(${Math.random()*360},100%,70%)`});
+      }
+    }
+
+    function animate(){
+      requestAnimationFrame(animate);
+      ctx.fillStyle = 'rgba(0,0,0,0.1)';
+      ctx.fillRect(0,0,W,H);
+      for(let i=particles.length-1;i>=0;i--){
+        let p=particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2,0,Math.PI*2);
+        ctx.fillStyle=p.color;
+        ctx.fill();
+        p.x+=p.vx; p.y+=p.vy; p.life--;
+        if(p.life<=0) particles.splice(i,1);
+      }
+    }
+
+    setInterval(createFirework,800);
+    animate();
+  }
+</script>
+</body>
+</html>
